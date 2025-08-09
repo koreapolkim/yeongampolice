@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>영암경찰 외국인 지원 웹앱</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 40px; /* 저작권 문구 공간 확보 */
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .hidden {
+    display: none;
+  }
+  button {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: none;
+    background-color: #007BFF; /* 파란색 */
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  .multi-lang {
+    margin: 10px 0;
+  }
+  .multi-lang span {
+    display: block;
+  }
+  .title-text {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .list-item {
+    margin-left: 20px;
+  }
+  .back-button {
+    background-color: #555;
+    margin-top: 30px;
+  }
+  .copy-right {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: gray;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- 화면 1: 인사 + 메뉴 -->
+<div id="screen1">
+  <h1>안녕하세요 주민과 함께하는 영암경찰입니다.</h1>
+  <p style="text-align:center; font-size:20px;">무엇을 도와드릴까요?</p>
+  <button onclick="showScreen('report')">신고 접수<br><small>Report 신고</small></button>
+  <button onclick="showScreen('consult')">상담 문의<br><small>Consult 상담</small></button>
+</div>
+
+<!-- 화면 2: 신고 접수 -->
+<div id="report" class="hidden">
+  <h2>신고 접수 / Report 신고</h2>
+  
+  <div class="multi-lang">
+    <div class="title-text">1. 누가? (Who?) 谁? Ai là? </div>
+    <input type="text" placeholder="예: 나, 옆 사람, 누군가" style="width:100%; padding:5px;"/>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">2. 왜? (Why?) 为什么? Tại sao? </div>
+    <input type="text" placeholder="예: 싸움, 도둑질" style="width:100%; padding:5px;"/>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">3. 무엇을? (What?) 什么? Cái gì? </div>
+    <input type="text" placeholder="예: 물건, 사람, 피해" style="width:100%; padding:5px;"/>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">4. 어떻게? (How?) 怎么? Như thế nào? </div>
+    <input type="text" placeholder="예: 때림, 도망감" style="width:100%; padding:5px;"/>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">5. 언제? (When?) 什么时候? Khi nào? </div>
+    <input type="text" placeholder="예: 지금, 어제, 오늘" style="width:100%; padding:5px;"/>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">6. 어디서? (Where?) 在哪里? Ở đâu? </div>
+    <input type="text" placeholder="예: 집, 시장, 거리" style="width:100%; padding:5px;"/>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">범죄 피해 종류 (Crime Types / 犯罪类型 / Loại tội phạm)</div>
+    <ul>
+      <li class="list-item">도둑질 (Theft / 偷窃 / Trộm cắp)</li>
+      <li class="list-item">폭력 (Violence / 暴力 / Bạo lực)</li>
+      <li class="list-item">사기 (Fraud / 诈骗 / Lừa đảo)</li>
+      <li class="list-item">성범죄 (Sex Crime / 性犯罪 / Tội phạm tình dục)</li>
+      <li class="list-item">기타 (Others / 其他 / Khác)</li>
+    </ul>
+  </div>
+
+  <button class="back-button" onclick="showScreen('screen1')">뒤로가기 / Back</button>
+</div>
+
+<!-- 화면 3: 상담 문의 -->
+<div id="consult" class="hidden">
+  <h2>상담 문의 / Consult 상담 / 咨询</h2>
+  
+  <div class="multi-lang">
+    <div class="title-text">영암경찰서 전화번호 (Police Station Phone / 警察局电话 / Điện thoại cảnh sát)</div>
+    <p>061-000-0000</p>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">군청 전화번호 (County Office Phone / 县政府电话 / Điện thoại huyện)</div>
+    <p>061-111-1111</p>
+  </div>
+
+  <div class="multi-lang">
+    <div class="title-text">길 안내 (Directions / 路线 / Hướng dẫn đường)</div>
+    <p>영암경찰서 위치는 영암 시내 중심에 있습니다.</p>
+  </div>
+
+  <button class="back-button" onclick="showScreen('screen1')">뒤로가기 / Back</button>
+</div>
+
+<!-- 저작권 문구 -->
+<div class="copy-right">copy right@영암경찰서 범죄예방대응과</div>
+
+<script>
+  function showScreen(id) {
+    // 모든 화면 숨기기
+    document.getElementById('screen1').classList.add('hidden');
+    document.getElementById('report').classList.add('hidden');
+    document.getElementById('consult').classList.add('hidden');
+
+    // 선택한 화면 보이기
+    document.getElementById(id).classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
